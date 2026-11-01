@@ -1,0 +1,12 @@
+{"id": "q01", "question": "Kiracı kira sözleşmesini feshetmek için kaç gün önceden bildirim yapmalı?", "expected_citations": ["SYN-KIRA-01 m.2"], "must_include": ["30 gün", "yazılı"], "answerable": true}
+{"id": "q02", "question": "Ev sahibi depozitoyu ne zaman iade etmek zorunda?", "expected_citations": ["SYN-KIRA-01 m.3"], "must_include": ["15 gün"], "answerable": true}
+{"id": "q03", "question": "Kiraya veren belgelemediği hasar için depozitodan kesinti yapabilir mi?", "expected_citations": ["SYN-KARAR-01 b.2", "SYN-KIRA-01 m.3"], "must_include": ["belgelen"], "answerable": true}
+{"id": "q04", "question": "Kıdem tazminatı almak için en az ne kadar çalışmak gerekir?", "expected_citations": ["SYN-IS-01 m.1"], "must_include": ["1 yıl"], "answerable": true}
+{"id": "q05", "question": "Kıdem tazminatı nasıl hesaplanır?", "expected_citations": ["SYN-IS-01 m.2"], "must_include": ["30 günlük", "brüt ücret"], "answerable": true}
+{"id": "q06", "question": "Fazla mesai ücreti ne kadar artırılarak ödenir?", "expected_citations": ["SYN-IS-01 m.3"], "must_include": ["yüzde 50", "45 saat"], "answerable": true}
+{"id": "q07", "question": "Ayıplı mal aldım, hangi haklarım var?", "expected_citations": ["SYN-TUK-01 m.1"], "must_include": ["değiştirilmesini", "bedel iadesini", "onarım"], "answerable": true}
+{"id": "q08", "question": "İnternetten aldığım ürünü kaç gün içinde iade edebilirim?", "expected_citations": ["SYN-TUK-01 m.3"], "must_include": ["14 gün"], "answerable": true}
+{"id": "q09", "question": "Anlaşmalı boşanma için dilekçeye hangi belgeler eklenir?", "expected_citations": ["SYN-AILE-01 m.1"], "must_include": ["protokol", "nüfus kayıt", "evlilik cüzdanı"], "answerable": true}
+{"id": "q10", "question": "Mirası reddetme süresi ne kadar?", "expected_citations": ["SYN-MIRAS-01 m.1"], "must_include": ["3 ay"], "answerable": true}
+{"id": "q11", "question": "Şirket kuruluşu için asgari sermaye ne kadardır?", "expected_citations": [], "must_include": [], "answerable": false}
+{"id": "q12", "question": "Trafik cezasına itiraz süresi nedir?", "expected_citations": [], "must_include": [], "answerable": false}
