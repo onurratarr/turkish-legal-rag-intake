@@ -1,5 +1,7 @@
 # turkish-legal-rag-intake
 
+[![CI](https://github.com/onurratarr/turkish-legal-rag-intake/actions/workflows/ci.yml/badge.svg)](https://github.com/onurratarr/turkish-legal-rag-intake/actions/workflows/ci.yml)
+
 > **Reference implementation.** This repository is inspired by a client project I delivered for a private law firm in
 > Turkey (a Turkish-language legal RAG assistant and a client-intake agent, with attorney human-in-the-loop review and
 > an accuracy rubric). **It is not the client's code and contains no client data.** The sample documents in
@@ -50,16 +52,15 @@ flowchart TB
     R -.-> E
 ```
 
-## Quick start
+## Quickstart in 3 commands
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
+python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 python -m legal_rag.cli demo      # ask → intake → attorney review, fully offline
 python -m pytest -q               # tests
-python -m legal_rag.evaluate      # rubric eval → eval/results.md
 ```
+
+Run the rubric eval with `python -m legal_rag.evaluate` (writes `eval/results.md`).
 
 ### Ask a question
 
@@ -154,6 +155,19 @@ and citation checks catching an unsupported sentence and a hallucinated article 
 cp .env.example .env    # set LLM_BACKEND=openai and OPENAI_API_KEY (any OpenAI-compatible endpoint)
 LLM_BACKEND=openai OPENAI_API_KEY=... python -m legal_rag.cli demo
 ```
+
+## How this maps to a forward-deployed engagement
+
+- **Scoping.** Sit with the attorneys to pick the practice areas, the source documents they trust, and what the
+  assistant must never do (give final advice, guess when sources are missing). Those decisions become the corpus, the
+  abstention rule and the review policy.
+- **Integration.** Ingest the firm's own documents with article-level chunking, route intake into the firm's matter
+  types, and put every draft into an attorney review queue rather than straight to the client.
+- **Evaluation.** Agree an accuracy rubric with the attorneys, build a labelled question set (including unanswerable
+  questions), and gate retrieval/prompt changes on it in CI (see
+  [llm-eval-harness](https://github.com/onurratarr/llm-eval-harness) for judge-based scoring and annotator agreement).
+- **Rollout.** Internal use first, attorneys reviewing every answer and scoring it with the rubric; widen scope only as
+  review data shows the answers hold up.
 
 ## Design decisions (the forward-deployed parts)
 
